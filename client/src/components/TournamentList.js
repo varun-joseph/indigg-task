@@ -1,34 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { apiClient } from '../api';
+import React, { useEffect, useState } from 'react'
+import { API } from '../Global';
+import { Button, Card } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-const TournamentList = () => {
-  const [tournaments, setTournaments] = useState([]);
+export default function TournamentList() {
 
-  useEffect(() => {
-    fetchTournaments();
-  }, []);
+  const [tournamentList, setTournamentList] = useState([]);
 
-  const fetchTournaments = async () => {
-    try {
-      const response = await apiClient.get('/tournaments');
-      setTournaments(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
+  const getTournament = () => {
+    fetch(`${API}/tournamentlist`, { method: "GET" })
+      .then((data) => data.json())
+      .then((tldata) => setTournamentList(tldata))
+  }
+  useEffect(() => getTournament(), []);
   return (
-    <div>
-      <h2>Tournaments</h2>
-      {tournaments.map((tournament) => (
-        <div key={tournament._id}>
-          <h3>{tournament.name}</h3>
-          <p>Start Date: {tournament.startDate}</p>
-          <p>End Date: {tournament.endDate}</p>
-        </div>
-      ))}
+    <div className="tournamentlist">
+      <h1 style={{color:"white"}}>Total Tournaments ({tournamentList.length})</h1>
+      <div className="tournamentlist-container">
+        {tournamentList.map((TL) => (<Tournament
+          key={TL._id}
+          tournament={TL}
+          id={TL._id}
+        />))}
+      </div>
     </div>
   );
-};
+}
 
-export default TournamentList;
+function Tournament({ tournament, id }) {
+
+  const navigate = useNavigate();
+
+  return (
+    <Card className="tournament-container">
+      <h1 className='tournament-container-name'>{tournament.name}</h1>
+      <div className="tournament-container-date">
+        <h4>Start Date: {tournament.startdate}</h4>
+        <h4>End Date: {tournament.enddate}</h4>
+      </div>
+      <h1 className='tournament-container-price'>Price: {tournament.price}/-</h1>
+      <Button variant='contained' className='join-btn' onClick={() => navigate(`/tournamentlist/${id}`)}>Join Now +</Button>
+    </Card>
+  )
+}

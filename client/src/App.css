@@ -1,38 +1,226 @@
-.App {
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: rgba(0, 0, 0, 0.844);
+}
+
+.home{
+  width: 100%;
+  height: 46rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+}
+
+.container{
+  margin-left: 25px;
+  background-color: transparent;
+  box-shadow: black 5px 10px 10px 5px;
+  position: right;
+  padding: 15px;
+  border-radius: 30px;
+  width: 500px;  
+}
+
+.home-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.svg img{
+  width: 500px;
+  height: 500px;
+}
+
+.join{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.participant-card{
+  padding: 25px;
+  width: 400px;
+  justify-content: center;
+}
+
+.join-form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form{
+  display: flex;
+  justify-content: center;
+}
+
+.tournamentpage{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 400px;
+  padding: 25px;
+}
+
+.create-tournament{
+  max-width: 100%;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5REM;
+}
+
+.textfield{
+  width: 100%;
+}
+
+.tournamentlist{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.blog-page {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tournamentlist-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  gap: clamp(1rem,2vw,1.5rem);
+}
+
+.tournament-container {
+  background-color: white;
+  width: 500px;
+  height: max-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tournament-container-date{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+join-btn{
+  width: 100%;
+}
+
+
+.login{
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 10px;
+  width: 500px;
+}
+
+.text{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav{
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-input{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mytournaments{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.tournament-footer, .actions{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.actions{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+table, th, td{
+  border-collapse: collapse;
+}
+
+.mygame{
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.mygames-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.game-list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  padding: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.action{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.toolbar{
+  justify-content: space-between;
 }
